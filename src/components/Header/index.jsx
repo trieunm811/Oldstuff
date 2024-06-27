@@ -3,38 +3,46 @@ import React from "react";
 import Logo from "../../assets/oldstuff-logo.jpg";
 import { Affix, Badge, Input } from "antd";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
 
 function Header() {
   return (
     <Affix offsetTop={0}>
-      <div className="bg-white px-8 ">
-        <div className="flex items-center justify-center ">
+      <motion.div
+        className="bg-black"
+        initial={{ y: 75, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex items-center justify-center py-8">
           <div className="flex lg:flex-1">
-            <img src={Logo} alt="logo" className="h-28 w-auto" />
+            <h1 className="text-2xl font-black text-white ml-40">OLDSTUFF</h1>
           </div>
-          <div className="hidden lg:flex lg:gap-x-8">
-            <a href="#" className="text-lg font-semibold leading-6 text-black">
+          <div className="hidden lg:flex lg:gap-x-8 text-white">
+            <a href="#" className="text-lg font-semibold leading-6 ">
               Men
             </a>
-            <a href="#" className="text-lg font-semibold leading-6 text-black">
+            <a href="#" className="text-lg font-semibold leading-6 ">
               Women
             </a>
-            <a href="#" className="text-lg font-semibold leading-6 text-black">
+            <a href="#" className="text-lg font-semibold leading-6 ">
               Kid
             </a>
-            <a href="#" className="text-lg font-semibold leading-6 text-black">
+            <a href="#" className="text-lg font-semibold leading-6 ">
               Sale
             </a>
-            <a href="#" className="text-lg font-semibold leading-6 text-black">
+            <a href="#" className="text-lg font-semibold leading-6 ">
               New & Features
             </a>
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4 mr-32">
             <Input className="w-44" placeholder="Search" />
-            <Badge count={1} overflowCount={10} size="small">
-              <ShoppingCartOutlined style={{ fontSize: "1rem" }} />
+            <Badge count={0} overflowCount={10} size="small">
+              <ShoppingCartOutlined
+                style={{ fontSize: "1rem", color: "white" }}
+              />
             </Badge>
-            <a href="#" className="text-lg font-semibold leading-6 text-black">
+            <a href="#" className="text-lg font-light leading-6 text-white">
               Log in
             </a>
             <SearchOutlined
@@ -43,7 +51,7 @@ function Header() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </Affix>
   );
 }
